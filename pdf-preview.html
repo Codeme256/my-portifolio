@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Preview</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      min-height: 100vh;
+    }
+
+    .container {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar a {
+      color: #4facfe;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .viewer {
+      flex: 1;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #161b22;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .viewer img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 12px;
+      border: 1px solid #30363d;
+      background: #0d1117;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toolbar">
+      <div>
+        <h1 style="margin: 0; font-size: 1.2rem;">Mwesigwa David Certificate Preview</h1>
+        <p style="margin: 6px 0 0; color: #8b949e;">The updated certificate is rendered as an image in the browser.</p>
+      </div>
+      <a href="Mwesigwa%20David.pdf.png" target="_blank" rel="noopener noreferrer">Open image in new tab</a>
+    </div>
+    <div class="viewer">
+      <img src="Mwesigwa%20David.pdf.png" alt="Mwesigwa David certificate image" />
+    </div>
+  </div>
+</body>
+</html>
