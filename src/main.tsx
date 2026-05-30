@@ -1,8 +1,9 @@
-// GitHub Pages SPA redirect fix
-const redirect = sessionStorage.redirect;
-delete sessionStorage.redirect;
-if (redirect && redirect !== location.href) {
-  window.history.replaceState(null, '', redirect.replace(window.location.origin, ''));
+const redirect = sessionStorage.getItem('redirect');
+if (redirect && redirect !== '/') {
+  sessionStorage.removeItem('redirect');
+  window.history.replaceState(null, '', '/my-portifolio/' + redirect.replace(/^\//, ''));
+} else {
+  sessionStorage.removeItem('redirect');
 }
 
 import { createRoot } from "react-dom/client";

@@ -3,12 +3,11 @@
   <head>
     <meta charset="utf-8">
     <script>
-      var path = window.location.pathname;
-      var query = window.location.search;
-      var hash = window.location.hash;
-      var base = '/my-portifolio';
-      var redirect = base + '/?p=' + encodeURIComponent(path + query) + hash;
-      window.location.replace(redirect);
+      var l = window.location;
+      var base = '/my-portifolio/';
+      var path = l.pathname.replace(base, '');
+      sessionStorage.setItem('redirect', path || '/');
+      l.replace(l.origin + base);
     </script>
   </head>
   <body></body>
