@@ -1,3 +1,8 @@
+const params = new URLSearchParams(window.location.search);
+const redirect = params.get('p');
+if (redirect) {
+  window.history.replaceState(null, '', redirect);
+}
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
