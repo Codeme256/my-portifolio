@@ -27,19 +27,20 @@ jobs:
         run: npm run build
 
       - name: Publish to GitHub Pages
-        env:
-          REPO_URL: https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin "$REPO_URL"
-          mkdir dist-copy
-          cp -r dist/* dist-copy/
-          git checkout --orphan gh-pages
+          mkdir -p /tmp/dist-copy
+          cp -r dist/* /tmp/dist-copy/
+          if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
           git reset --hard
-          find . -maxdepth 1 ! -name .git ! -name dist-copy ! -name . -exec rm -rf {} +
-          cp -r dist-copy/* .
-          rm -rf dist-copy
+          git clean -fdx
+          cp -r /tmp/dist-copy/* .
+          rm -rf /tmp/dist-copy
           touch .nojekyll
           git add --all
           git commit -m "Deploy site to GitHub Pages"
