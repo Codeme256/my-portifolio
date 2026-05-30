@@ -34,6 +34,13 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Enable GitHub Pages (optional)
+        if: ${{ secrets.PAGES_TOKEN != '' }}
+        uses: actions/configure-pages@v5
+        with:
+          token: ${{ secrets.PAGES_TOKEN }}
+          enablement: true
+
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
