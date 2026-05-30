@@ -1,3 +1,4 @@
+// GitHub Pages SPA redirect fix
 const params = new URLSearchParams(window.location.search);
 const redirect = params.get('p');
 if (redirect) {
