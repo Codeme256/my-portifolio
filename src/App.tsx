@@ -9,6 +9,7 @@ import Skills from "@/pages/skills";
 import Projects from "@/pages/projects";
 import Certifications from "@/pages/certifications";
 import Contact from "@/pages/contact";
+import CV from "@/pages/cv";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ function Router() {
         <Route path="/skills" component={Skills} />
         <Route path="/projects" component={Projects} />
         <Route path="/certifications" component={Certifications} />
+        <Route path="/cv" component={CV} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>
