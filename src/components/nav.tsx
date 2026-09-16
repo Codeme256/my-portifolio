@@ -7,6 +7,7 @@ const links = [
   { href: "/", label: "HOME" },
   { href: "/skills", label: "SKILLS" },
   { href: "/projects", label: "PROJECTS" },
+  { href: "/cv", label: "CV" },
   { href: "/certifications", label: "CERTS" },
   { href: "/contact", label: "CONTACT" },
 ];
@@ -22,7 +23,6 @@ export default function Nav() {
         <span className="font-mono font-bold text-primary tracking-widest text-sm">MD.SYS</span>
       </Link>
 
-      {/* Desktop nav */}
       <div className="hidden md:flex items-center gap-8">
         {links.map((link) => (
           <Link
@@ -40,7 +40,6 @@ export default function Nav() {
         ))}
       </div>
 
-      {/* Mobile hamburger */}
       <button
         className="md:hidden text-muted-foreground hover:text-primary transition-colors"
         onClick={() => setOpen(!open)}
@@ -50,7 +49,6 @@ export default function Nav() {
         {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
       </button>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {open && (
           <motion.div
