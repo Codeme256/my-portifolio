@@ -37,7 +37,7 @@ const focus = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-background text-foreground overflow-x-hidden selection:bg-primary/30">
+    <div id="home" className="min-h-screen w-full bg-background text-foreground overflow-x-hidden selection:bg-primary/30 scroll-mt-20">
       <div className="fixed inset-0 pointer-events-none z-0 bg-grid opacity-20" />
 
       <section className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 min-h-[100dvh] flex items-center pt-20">
