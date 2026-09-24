@@ -14,13 +14,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Nav />
-        <Home />
+        <div className="min-w-[900px]">
+          <Nav />
+          <Home />
         <div id="skills"><Skills /></div>
         <div id="projects"><Projects /></div>
         <div id="certifications"><Certifications /></div>
         <div id="contact"><Contact /></div>
         <Toaster />
+        </div>
       </TooltipProvider>
     </QueryClientProvider>
   );
