@@ -1,5 +1,3 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,35 +7,19 @@ import Skills from "@/pages/skills";
 import Projects from "@/pages/projects";
 import Certifications from "@/pages/certifications";
 import Contact from "@/pages/contact";
-import CV from "@/pages/cv";
-import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
-
-function Router() {
-  return (
-    <>
-      <Nav />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/skills" component={Skills} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/certifications" component={Certifications} />
-        <Route path="/cv" component={CV} />
-        <Route path="/contact" component={Contact} />
-        <Route component={NotFound} />
-      </Switch>
-    </>
-  );
-}
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <WouterRouter hook={useHashLocation}>
-          <Router />
-        </WouterRouter>
+        <Nav />
+        <Home />
+        <div id="skills"><Skills /></div>
+        <div id="projects"><Projects /></div>
+        <div id="certifications"><Certifications /></div>
+        <div id="contact"><Contact /></div>
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
